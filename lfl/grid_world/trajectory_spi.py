@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 from grid import Grid
-from mdp_utils import sample_trajectory
+from mdp_utils import sample_sa_trajectory
 from mdp_utils import score_policy
 from mdp_utils import softmax
 from mdp_utils import solve_entropy_regularized_mdp
@@ -50,7 +50,7 @@ def main():
     pi = np.ones((n_states, n_actions))/n_actions
 
     # sample initial trajectory:
-    trajectory = sample_trajectory(p, pi, tmax)
+    trajectory = sample_sa_trajectory(p, pi, tmax)
 
     # transition estimation:
     p_ = np.ones((n_states, n_actions, n_states)) * 1e-15
@@ -87,7 +87,7 @@ def main():
         pi[state, :] = softmax(q[state, :]/alpha)
 
       # sample trajectory with new policy:
-      trajectory = sample_trajectory(p, pi, tmax)
+      trajectory = sample_sa_trajectory(p, pi, tmax)
 
       policies.append(pi)
       demos.append(trajectory)

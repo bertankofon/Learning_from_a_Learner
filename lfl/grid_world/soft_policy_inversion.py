@@ -19,7 +19,7 @@ def main(unused_argv):
   n_states = gride_size**2
   n_actions = 4
   gamma = 0.96
-  alpha = 0.3
+  alpha = 0.5
 
   # generate a deterministic gridworld:
   g = Grid(gride_size, stochastic=False)
