@@ -21,7 +21,7 @@ def main(unused_argv):
   gamma = 0.96
   alpha = 0.5
 
-  # generate a deterministic gridworld:
+  # generate a deterministic gridworld
   g = Grid(gride_size, stochastic=False)
 
   # we just need the reward and dynamic of the MDP:
